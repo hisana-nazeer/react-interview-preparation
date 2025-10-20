@@ -1,0 +1,35 @@
+Suppose we have a button login, when we click it it should show logout(ie, whenever we click the button it should switch bw login and logout)
+
+NORMALLY, without using useState
+const Header =()=>{
+ let btnValue=login
+
+return(
+<button className="login-logout" onClick=()=>{
+btnValue=="logout"
+console.log(btnValue)>{btnValue}</button>
+)
+}
+
+what will happen here is , even if we click the button, button doesnt change to logout, but in console it changes to logout, ie,value updated but it is not changing in the ui,
+bcoz  it will show in the ui only when refreshed/re rendered
+in this case we use state variable which updates the value plus render it
+
+const[btnValue, setButtonValue]=useState("login")
+
+setButtonValue will rerender the changes in the state variable btnValue
+
+Note: when rerenders, it will re render the whole component where the button is present. whenever a atstae var is update, react triggers a reconciliation cycle(re renders the component)
+
+return(
+<button className="login-logout" 
+onClick=()=>{
+btnValue==="logout"?setBtnValue="login":setBtnValue="logout
+console.log(btnValue)>{btnValue}</button>
+)
+}
+
+HOW THE CONST VARIABLE GET UPDATED WITH NEW VALUE?
+setButtonValue call the header function once again and new instance is created
+update happens using diff algorithm
+
