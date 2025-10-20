@@ -1,0 +1,1 @@
+React can efficicnetly do DOM manipulation with the help reconcililation mechanism, that is finding the difference bw old and new virtual doms and updating that particular portion where update is needed
